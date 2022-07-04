@@ -10,6 +10,9 @@ workflows:
             xcode: 13.0
             cocoapods: default
         scripts:
+            - name: cd ios
+                  script: |
+                                cd ios
             - name: Install CocoaPods dependencies
               script: |
                                 pod install
