@@ -10,9 +10,6 @@ workflows:
             xcode: 13.0
             cocoapods: default
         scripts:
-            - name: React Build ios
-              script: |
-                                npx pod-install ios
             - name: Install CocoaPods dependencies
               script: |
                                 pod install
