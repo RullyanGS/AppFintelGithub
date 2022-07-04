@@ -5,15 +5,23 @@ workflows:
         instance_type: mac_mini
         environment:
             vars:
-               XCODE_WORKSPACE: "Rullyan" # <-- Put the name of your Xcode workspace here
-               XCODE_SCHEME: "CidadeFacil" # <-- Put the name of your Xcode scheme here
+               XCODE_WORKSPACE: "appfintel.xcworkspace" # <-- Put the name of your Xcode workspace here
+               XCODE_SCHEME: "appfintel_name" # <-- Put the name of your Xcode scheme here
             xcode: 13.0
             cocoapods: default
         scripts:
+            scripts:
+            - name: Install npm dependencies
+              script: |
+                                npm install
+            - name: Install CocoaPods dependencies
+              script: |
+                                cd ios && pod install
             - name: Build ipa for distribution
               script: |
-                                xcodebuild build -workspace "$XCODE_WORKSPACE" -scheme "$XCODE_SCHEME" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=15.4' -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO 
+                                xcodebuild build -workspace "appfintel.xcworkspace" -scheme "appfintel" CODE_SIGN_INDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
         artifacts:
             - /tmp/xcodebuild_logs/*.log
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
