@@ -1,10 +1,10 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '11.0'
+platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'CidadeFacil' do
+target 'appfintel' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -19,7 +19,7 @@ target 'CidadeFacil' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'CidadeFacilTests' do
+  target 'appfintelTests' do
     inherit! :complete
     # Pods for testing
   end
