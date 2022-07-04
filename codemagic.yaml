@@ -18,7 +18,7 @@ workflows:
                                 cd ios && pod install
             - name: Build ipa for distribution
               script: |
-                                xcodebuild build -workspace "appfintel.xcworkspace" -scheme "appfintel" CODE_SIGN_INDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+                                cd ios && xcodebuild build -workspace "appfintel.xcworkspace" -scheme "appfintel" CODE_SIGN_INDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
         artifacts:
             - /tmp/xcodebuild_logs/*.log
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
