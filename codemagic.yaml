@@ -10,7 +10,6 @@ workflows:
             xcode: 13.0
             cocoapods: default
         scripts:
-            scripts:
             - name: Install npm dependencies
               script: |
                                 npm install
